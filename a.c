@@ -1,11 +1,9 @@
-#include <stdlib.h>
+int a = 0;
+
 int main(){
-    register int a, b, c;
-    a = 1;
-    b = 2;
+    int b, c;
+    b = 1;
+    a += b;
     c = a + b;
-
-    exit(0);
-
     return c;
 }

@@ -8,7 +8,7 @@ asm:
 	ld a.step -o asm.out
 
 debug:
-	gcc  a.s -o asm_d.out -nostdlib -g
+	gcc  a.s -o asm_d.out -nostdlib -g -no-pie
 	gdb asm_d.out
 
 check: | c
