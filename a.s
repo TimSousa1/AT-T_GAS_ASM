@@ -44,7 +44,6 @@ loop:
 
 next:
     # adding with a number from memory
-    # adding $x directly would add it's address, not it's value
     # (x) peeks into x's address and changes the value stored there
     addl    $10, (x)
     mov     (x), %r9d    # easier to check the value when debugging
