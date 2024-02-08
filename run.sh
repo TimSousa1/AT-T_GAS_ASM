@@ -1,3 +1,4 @@
+#!/bin/sh
 # print every command to stdout 
 set -x
 
