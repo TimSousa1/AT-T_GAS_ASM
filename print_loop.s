@@ -1,6 +1,7 @@
+# learning the basics
 .globl _start
 
-.section .data
+.data
 # message for printing
 msg: .ascii "awesome!\n"
 len = . - msg
@@ -9,8 +10,8 @@ len = . - msg
 x: .int 79
 
 # syscalls
-sys_write: .int 1
-sys_exit: .int 60
+sys_write: .int  1
+sys_exit:  .int 60
 
 .text
 _start:
@@ -20,7 +21,7 @@ _start:
     add    %ebx, %eax
 
     # printing a string
-    mov    $sys_write, %rax
+    mov    sys_write, %eax
     mov    $1, %rdi     # to stdout
     mov    $msg, %rsi   # char *buf
     mov    $len, %rdx   # strlen
@@ -33,7 +34,7 @@ loop:
      
     # sys_write replaces whatever was on %rax
     # %rax value has to be reset for every call
-    mov    $sys_write, %rax
+    mov    sys_write, %eax
     syscall
 
     add    $1, %r8d
@@ -50,6 +51,6 @@ next:
     
 exit:
     # exiting
-    mov    $sys_exit, %rax
-    add    $0, %rdi          # exit code 0
+    mov    sys_exit, %eax
+    mov    $0, %rdi          # exit code 0
     syscall
